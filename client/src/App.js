@@ -24,7 +24,14 @@ function App() {
   }, [])
 
   useEffect(() => {
-    
+    fetch("/audio/Reality-Surf.mp3").then(
+      res => res.json()
+    ).then(
+        data => {
+          setAudioUrl(data)
+          console.log(data)
+        }
+    )
   })
 
   return (
