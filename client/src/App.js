@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react'
 
-
+function TrackDisplay(props){
+  return (
+    <div>
+      {props.trackName}
+    </div>
+  ); 
+}
 
 function App() {
   const [audioUrl, setAudioUrl] = useState(null)
@@ -23,6 +29,7 @@ function App() {
 
   return (
     <div>
+      <TrackDisplay trackName='Egobaby -- bladee'/>
       <ul>
         {(typeof data.Tracks === 'undefined') ? (
           <p>Loading...</p>
