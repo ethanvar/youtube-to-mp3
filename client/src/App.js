@@ -24,7 +24,7 @@ function App() {
     )
     .catch(error => {
       console.error('Error fetching data:', error);
-      setIsLoading(true); // Set isLoading to false in case of error
+      setIsLoading(true);
     });
   }, []);
 
