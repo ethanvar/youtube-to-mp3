@@ -11,6 +11,7 @@ async function TrackDisplay(props){
 
 function App() {
   const [audioUrl, setAudioUrl] = useState(null)
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([{}])
 
   // useEffect(() => {
@@ -28,18 +29,19 @@ function App() {
     fetch("/audio/Reality-Surf.mp3").then(
         data => {
           setAudioUrl(data)
-          console.log(data)
+          console.log("Use Effect = " + data)
+          setIsLoading(false)
         }
     )
   }, []);
 
   return (
     <div>
-      {/* (typeof data.Tracks === 'undefined') ? (
+      {/* {isLoading ?  (
         <p>Loading...</p>
       ) : (
-        <TrackDisplay trackName={audioUrl}/>
-      ) */}
+        <TrackDisplay trackName={audioUrl.url}/>)
+      } */}
       {/* <ul>
         {
         // (typeof data.Tracks === 'undefined') ? (
@@ -51,8 +53,10 @@ function App() {
         // // )
         // } */}
       {/* </ul> */}
-      {console.log(audioUrl)}
-      <audio controls src={audioUrl.url} />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (<audio controls src={audioUrl.url} />)}
+      {/* <audio controls src={audioUrl.url} /> */}
     </div>
   )
 }
