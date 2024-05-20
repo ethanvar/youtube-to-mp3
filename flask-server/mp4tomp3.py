@@ -25,6 +25,8 @@ def download_video(link):
     # print(testing.url)
     testing.download()
     return yt
+#Each chunk is a 
+#Use create stream object, and then  
 
 def download_to_buffer(link):
     yt = YouTube(link)

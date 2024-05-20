@@ -8,6 +8,15 @@ function Trackdisplay(props){
   ); 
 }
 
+function Searchbar(props){
+  return (
+    <div>
+      <input type='text'></input>
+      <button ></button>
+    </div>
+  )
+}
+
 function App() {
   const [audioUrl, setAudioUrl] = useState(null)
   const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +46,7 @@ function App() {
           <Trackdisplay trackName={audioUrl.url}/>
       )
       }
+      <Searchbar/>
     </div>
   )
 }
