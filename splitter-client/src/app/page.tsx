@@ -3,6 +3,7 @@
 import React, {useState, useEffect} from 'react'
 
 function Trackdisplay(props: String){
+  
   return (
     <div>
       {/* <audio controls src={props.trackName}/> */}
@@ -10,6 +11,20 @@ function Trackdisplay(props: String){
   ); 
 }
 
+
+async function getData() {
+  const res = await fetch('/audio/Reality-Surf.mp3')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+ 
 function Searchbar(){
   return (
     <div>
@@ -40,25 +55,12 @@ export default async function Home() {
   //   });
   // }, []);
 
-  const res = await fetch('https://api.example.com/...')
-  const urlData = await res.json()
 
+  const urlData = await getData()
 
-  return (
-    <div>
-      {
-      isLoading ? ( 
-        <p>Loading...</p>
-        ) : (
-          // <Trackdisplay trackName={urlData.url}/>
-      )
-      }
-      <Searchbar/>
-    </div>
-  )
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     
+      <Searchbar/>
     </main>
   );
 }
