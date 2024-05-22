@@ -1,13 +1,18 @@
-from flask import Flask, send_from_directory, abort
+from flask import Flask, send_from_directory, abort, jsonify
+
 import os
 
 app = Flask(__name__)
 
 audio_path = 'D:\cakewalk\samples'
 
+
 @app.route('/tracks')
 def tracks():
-    return {"Tracks": ["Track1","Track2","Track3"]}
+   return jsonify({
+        'message': "Like this video if this helped!",
+        'people': ['Jack', 'Harry', 'Arpan']
+    })
 
 @app.route('/audio/<filename>')
 def get_audio(filename):
