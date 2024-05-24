@@ -10,17 +10,20 @@ function Searchbar(){
   )
 }
 
-
 export default async function Page() {
-  // const res = await fetch('https://443b-70-30-58-172.ngrok-free.app ', { next: { tags: ['collection'] } })
-  // console.log(await res.json())
-
-  // const urlData = await getData()
-
+  const res2 = await fetch('https://ac16-174-91-124-30.ngrok-free.app/audio/Reality-Surf.mp3')
+  const res = await fetch('https://ac16-174-91-124-30.ngrok-free.app/tracks', {cache: 'no-store'})
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Trackdisplay />
-      <Searchbar/>
-    </main>
+    <div className="flex min-h-screen items-center justify-center">
+      <div>
+        <Searchbar />   
+      </div>
+      <div>
+        <Trackdisplay title="Track One" song={res2.url} />
+      </div>
+      <div>
+        <Trackdisplay title="Track Two" song={res2.url}/>
+      </div>
+    </div>
   );
 }
