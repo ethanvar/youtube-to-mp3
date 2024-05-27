@@ -10,8 +10,7 @@ audio_path = 'D:\cakewalk\samples'
 @app.route('/tracks')
 def tracks():
    return jsonify({
-        'message': "Like this video if this helped!",
-        'people': ['Jack', 'Harry', 'Arpan']
+        'message': "Hello World!",
     })
 
 @app.route('/audio/<filename>')
