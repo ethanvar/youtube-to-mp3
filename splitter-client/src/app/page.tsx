@@ -1,22 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { Trackdisplay } from '@/components/trackdisplay'
-
-function Searchbar(){
-  return (
-    <div>
-      <input type='text'></input>
-      <button ></button>
-    </div>
-  )
-}
+import { Songsearch } from '@/components/songsearch'
 
 export default async function Page() {
-  const res2 = await fetch('https://7d8f-174-91-124-30.ngrok-free.app/audio/Reality-Surf.mp3')
+  const res = await fetch('https://upload.wikimedia.org/wikipedia/commons/3/33/Ulaw_Lalapa_sakatusa.ogg')
 
   return (
-    <div>
-      <div className='flex min-h-screen items-center justify-center'>
-          <Trackdisplay title="Track One" song={res2.url} /> 
+    <div className='flex flex-row min-h-screen items-center justify-center'>
+      <div className='m-10'>
+        <Songsearch />
+      </div>
+      <div className='m-10'>
+        <Trackdisplay title="Track One" song={res.url} /> 
       </div>
     </div>
   );
