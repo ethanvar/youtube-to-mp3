@@ -8,10 +8,11 @@ export const Controlcomponent = () =>  {
     const [title, setTitle] = useState<string>('Track 1')
     const [currSong, setCurrSong] = useState<string>('https://upload.wikimedia.org/wikipedia/commons/3/33/Ulaw_Lalapa_sakatusa.ogg')
     
-    const handleSongSelect = (songUrl: any) => {
-        setCurrSong(songUrl);
+    const handleSongSelect = (songUrl: string) => {
+        // setCurrSong(songUrl);
+        // setTitle("Reality Surf -- bladee")
     };
-
+ 
     return (
         <div className='flex min-h-screen items-center justify-center'>
             <div className='m-10'>
