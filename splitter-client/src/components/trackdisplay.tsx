@@ -32,7 +32,7 @@ export const Trackdisplay = ( {title, song} : Props) => {
   }
 
   return (
-    <div className='flex rounded-lg shadow-lg'>
+    <div className='flex rounded-lg shadow-lg '>
       <div className='flex flex-col m-10 items-center'>
         <div ref={waveformRef} />
         <div >

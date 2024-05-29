@@ -21,7 +21,7 @@ export const Songsearch = ( { setSong } : any) => {
     }
 
     return (
-        <div className='flex flex-col items-center rounded-lg shadow-lg p-5'>
+        <div className='flex flex-col items-center rounded-lg shadow-lg border-opacity-80 p-5'>
             <div className='flex flex-row p-4'>
                 <form onSubmit={handleSubmit} >
                     <input placeholder='Insert YouTube link' className='border border-green-300 p-4 rounded-lg shadow-lg' onChange={handleChange}></input>
