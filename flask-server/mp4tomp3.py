@@ -12,31 +12,10 @@ from pytube.exceptions import RegexMatchError, MaxRetriesExceeded
 default_range_size = 9437184 
 
 
-# logger = logging.getLogger(__name__)
-
-# def download_video(link):
-#     yt = YouTube(link).streams.first().download()
-    # try to figure out how a stream object works
-    # See C:\Users\Ethan\AppData\Local\Programs\Python\Python310\Lib\site-packages\pytube\request.py and look at func stream()
-    # Looks like YouTube() finds the url, streams() takes the info and returns a StreamQuery() object which returns an array of streaming objects,
-    # first() takes the steraming object propert of StreamQuery opbject, and then download() downloads the audio by using request.stream() to do all the weird bit operations 
-    # request.stream(link)
-    # print(testing.url)
-    # return yt
-#Each chunk is a 
-#Use create stream object, and then  
 def download_video(link):
     yt = YouTube(link)
     yt.streams.first().download()
     return yt
-
-# def download_to_buffer(link):
-    # yt = YouTube(link)
-    # testing = yt.streams.first()
-    # ytstream =  request.stream(testing.url)
-    # return ytstream
-    # for chunk in request.stream(link):
-    #     print(chunk)
 
 def mp4_to_mp3(mp4, mp3):     
     mp4_without_frames = AudioFileClip(mp4)     
@@ -45,12 +24,7 @@ def mp4_to_mp3(mp4, mp3):
 
 
 def main():
-    # yt = download_to_buffer('https://www.youtube.com/watch?v=EqM8fC8bYQo')
-    # print(yt)
     yt = download_video('https://www.youtube.com/watch?v=3PEoICa7B5A')
     VIDEO_FILE_PATH = yt.title + ".mp4"
     AUDIO_FILE_PATH = yt.title + ".mp3"
     mp4_to_mp3(VIDEO_FILE_PATH, AUDIO_FILE_PATH)
-    # download_to_buffer('https://www.youtube.com/watch?v=EqM8fC8bYQo')
-
-# main()
