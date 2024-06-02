@@ -33,7 +33,7 @@ def receive_link():
     VIDEO_FILE_PATH = yt.title + ".mp4"
     AUDIO_FILE_PATH = yt.title.replace(' ','-') + ".mp3"
     mp4_to_mp3(VIDEO_FILE_PATH, AUDIO_FILE_PATH)
-    return "http://127.0.0.1:8800/audio/" + AUDIO_FILE_PATH
+    return jsonify({"url": "http://127.0.0.1:8800/audio/" + AUDIO_FILE_PATH, "name" : AUDIO_FILE_PATH})
 
 
 
