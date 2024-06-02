@@ -25,22 +25,16 @@ export const Controlcomponent = () =>  {
                 title: embedTitle
             };
             const res = await axios.post("http://127.0.0.1:8800/api/data", resData).then((response) => {
-                console.log(response.status, response.data);
-                setCurrSong(response.data);
-                setTitle("Reality Surf -- bladee")
+                console.log(response.status, response.data.songname);
+                setCurrSong(response.data.url);
+                setTitle(response.data.name)
             });
         } catch (error) {
             console.error('Error sending data', error);
             console.log('Error sending data');
         }
     };
-
-    const sendSong = () => {
-        // setCurrSong(embedSong);
-        setTitle(embedTitle)
-    }
-
-
+    
     return (
         <div className='flex min-h-screen items-center justify-center'>
             <div className='m-10 bg-gray-50 rounded-lg rounded-lg '>
