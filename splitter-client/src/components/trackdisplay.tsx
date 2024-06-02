@@ -1,6 +1,5 @@
 "use client"
 import React from 'react';
-import axios from 'axios'
 import { useRef, useState } from 'react';
 import { useWavesurfer } from '@wavesurfer/react'
 
@@ -11,7 +10,6 @@ interface Props {
 
 export const Trackdisplay = ( {title, song} : Props) => {
   const waveformRef = useRef(null);
-  console.log(song)
   const { wavesurfer, isReady, isPlaying, currentTime } = useWavesurfer({
     container: waveformRef,
     url: song,
