@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
-import { useRef } from 'react';
+import axios from 'axios'
+import { useRef, useState } from 'react';
 import { useWavesurfer } from '@wavesurfer/react'
 
 interface Props {
