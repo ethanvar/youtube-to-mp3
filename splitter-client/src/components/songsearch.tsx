@@ -1,11 +1,9 @@
 "use client"
 import React from 'react';
-import { Trackdisplay } from '@/components/trackdisplay'
 import { useState, FormEvent, ChangeEvent } from 'react';
 
 export const Songsearch = ( { setSong } : any) => {
     const [input, setInput] = useState<string>('')
-    // const [tubeLink, setTubeLink] = useState<string>('')
     const [embedString, setEmbedString] = useState<string>('KMU0tzLwhbE')
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -14,7 +12,6 @@ export const Songsearch = ( { setSong } : any) => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) : void => {
         event.preventDefault()
-        // setTubeLink(input)
         const lastEight = input.slice(-11)
         setEmbedString(lastEight)
         setSong(input)
