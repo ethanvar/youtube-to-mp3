@@ -34,10 +34,7 @@ export const Trackdisplay = ( {title, song} : Props) => {
 
   const handleDownload = async () => {
     try {
-      const res = await axios.get(song, {responseType: 'blob' }).then((response) => {
-        console.log(response)
-        console.log(response.status, response.data);
-
+      await axios.get(song).then((response) => {
         const songBlob = new Blob([response.data]);
         const songURL = window.URL.createObjectURL(songBlob);
         const tempLink = document.createElement('a');
@@ -45,6 +42,8 @@ export const Trackdisplay = ( {title, song} : Props) => {
         tempLink.href = songURL;
         tempLink.setAttribute('download', song.slice(28, song.length));
         tempLink.click();
+
+        document.body.removeChild(tempLink);
       });
     }
     catch (error) {
@@ -56,15 +55,15 @@ export const Trackdisplay = ( {title, song} : Props) => {
   return (
     <div className='flex rounded-lg shadow-lg '>
       <div className='flex flex-col m-10 items-center'>
+        <button onClick={handleDownload}>
+          {isReady ? 'Download' : ' '}
+        </button>
         <div ref={waveformRef} />
         <div >
           <button onClick={onPlayPause}>
             {isPlaying ? 'Pause' : 'Play'}
           </button>
         </div>
-        <button onClick={handleDownload}>
-          Download
-        </button>
         <h1>{title}</h1>
       </div>
     </div>
