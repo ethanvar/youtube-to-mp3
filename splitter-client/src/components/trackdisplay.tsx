@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useWavesurfer } from '@wavesurfer/react'
 import axios from 'axios'
 
@@ -40,7 +40,7 @@ export const Trackdisplay = ( {title, song} : Props) => {
         const tempLink = document.createElement('a');
 
         tempLink.href = songURL;
-        tempLink.setAttribute('download', song.slice(28, song.length));
+        tempLink.setAttribute('download', song.slice(32, song.length));
         tempLink.click();
 
         document.body.removeChild(tempLink);

@@ -17,7 +17,6 @@ export const Dashboard = () =>  {
     
     const handleSongSelect = (songUrl: string) => {
         setEmbedSongUrl(songUrl);
-        setEmbedTitle("Reality Surf -- bladee")
     };
     
 
@@ -27,7 +26,7 @@ export const Dashboard = () =>  {
                 song: embedSongUrl,
                 title: embedTitle
             };
-            const res = await axios.post("http://127.0.0.1:8800/api/data", resData).then((response) => {
+            const res = await axios.post("http://127.0.0.1:8800/api/audio", resData).then((response) => {
                 console.log(response.status, response.data);
                 setWaveSong(response.data.url);
                 setWaveTitle(response.data.name)
@@ -37,10 +36,6 @@ export const Dashboard = () =>  {
             console.log('Error sending data');
         }
     };
-    
-    const handleSplit = async() : Promise<void> => {
-        
-    }
 
     return (
         <div className='flex min-h-screen items-center justify-center'>
